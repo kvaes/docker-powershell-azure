@@ -2,9 +2,11 @@ FROM ubuntu:xenial
 
 MAINTAINER Karim Vaes <dockerfile@kvaes.be>
 
+# Powershell Source : https://github.com/PowerShell/PowerShell/releases/
 ARG POWERSHELL_RELEASE=v6.0.0-alpha.10
 ARG POWERSHELL_PACKAGE=powershell_6.0.0-alpha.10-1ubuntu1.16.04.1_amd64.deb
-ARG DOTNETCORE_PACKAGE=dotnet-dev-1.0.0-preview2-003121
+# dotnetcore Source : https://apt-mo.trafficmanager.net/repos/dotnet-release/pool/main/d/
+ARG DOTNETCORE_PACKAGE=dotnet-dev-1.0.0-preview2-003131
 
 RUN apt-get update \
     && apt-get install apt-transport-https curl -y \
@@ -20,7 +22,7 @@ WORKDIR /powershell
 	
 # Install PowerShell package and clean up
 RUN curl -SLO https://github.com/PowerShell/PowerShell/releases/download/$POWERSHELL_RELEASE/$POWERSHELL_PACKAGE \
-    && apt-get install libunwind8 libicu55
+    && apt-get install libunwind8 libicu55 \
     && dpkg -i $POWERSHELL_PACKAGE \
     && rm $POWERSHELL_PACKAGE \
 	&& apt-get clean
