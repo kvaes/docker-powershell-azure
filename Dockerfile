@@ -3,10 +3,10 @@ FROM ubuntu:xenial
 MAINTAINER Karim Vaes <dockerfile@kvaes.be>
 
 # Powershell Source : https://github.com/PowerShell/PowerShell/releases/
-ARG POWERSHELL_RELEASE=v6.0.0-alpha.10
-ARG POWERSHELL_PACKAGE=powershell_6.0.0-alpha.10-1ubuntu1.16.04.1_amd64.deb
+ARG POWERSHELL_RELEASE=v6.0.0-alpha.12
+ARG POWERSHELL_PACKAGE=powershell_6.0.0-alpha.12-1ubuntu1.16.04.1_amd64.deb
 # dotnetcore Source : https://apt-mo.trafficmanager.net/repos/dotnet-release/pool/main/d/
-ARG DOTNETCORE_PACKAGE=dotnet-dev-1.0.0-preview2-003131
+ARG DOTNETCORE_PACKAGE=dotnet-dev-1.0.0-preview2.1-003155
 
 RUN apt-get update \
     && apt-get install apt-transport-https curl -y \
