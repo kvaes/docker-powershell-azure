@@ -26,7 +26,7 @@ RUN curl -SLO https://github.com/PowerShell/PowerShell/releases/download/$POWERS
     && rm $POWERSHELL_PACKAGE \
 	&& apt-get clean
 
-RUN powershell -Command "Install-Package -Name AzureRM.NetCore.Preview -Source https://www.powershellgallery.com/api/v2 -ProviderName NuGet -ExcludeVersion -Destination /usr/local/share/powershell/Modules -Force"
+RUN powershell -Command "Install-Package -Name AzureRM.NetCore.Preview -Source https://www.powershellgallery.com/api/v2 -ExcludeVersion -Destination /usr/local/share/powershell/Modules -Force"
 
 # Use array to avoid Docker prepending /bin/sh -c
 ENTRYPOINT [ "powershell" ]
